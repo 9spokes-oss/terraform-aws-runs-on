@@ -46,8 +46,9 @@ locals {
 
 # Linux Default (Public) Launch Template
 resource "aws_launch_template" "linux_default" {
-  name          = "${var.stack_name}-linux-default"
-  instance_type = "t3.medium" # Placeholder, will be overridden at launch
+  name                   = "${var.stack_name}-linux-default"
+  instance_type          = "t3.medium" # Placeholder, will be overridden at launch
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -95,8 +96,9 @@ resource "aws_launch_template" "linux_default" {
 }
 
 resource "aws_launch_template" "linux_default_nested" {
-  name          = "${var.stack_name}-linux-default-nested"
-  instance_type = local.nested_launch_template_instance_type
+  name                   = "${var.stack_name}-linux-default-nested"
+  instance_type          = local.nested_launch_template_instance_type
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -149,8 +151,9 @@ resource "aws_launch_template" "linux_default_nested" {
 
 # Windows Default (Public) Launch Template
 resource "aws_launch_template" "windows_default" {
-  name          = "${var.stack_name}-windows-default"
-  instance_type = "t3.large" # Placeholder
+  name                   = "${var.stack_name}-windows-default"
+  instance_type          = "t3.large" # Placeholder
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -198,8 +201,9 @@ resource "aws_launch_template" "windows_default" {
 }
 
 resource "aws_launch_template" "windows_default_nested" {
-  name          = "${var.stack_name}-windows-default-nested"
-  instance_type = local.nested_launch_template_instance_type
+  name                   = "${var.stack_name}-windows-default-nested"
+  instance_type          = local.nested_launch_template_instance_type
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -252,8 +256,9 @@ resource "aws_launch_template" "windows_default_nested" {
 
 # Linux Private Launch Template
 resource "aws_launch_template" "linux_private" {
-  name          = "${var.stack_name}-linux-private"
-  instance_type = "t3.medium"
+  name                   = "${var.stack_name}-linux-private"
+  instance_type          = "t3.medium"
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -301,8 +306,9 @@ resource "aws_launch_template" "linux_private" {
 }
 
 resource "aws_launch_template" "linux_private_nested" {
-  name          = "${var.stack_name}-linux-private-nested"
-  instance_type = local.nested_launch_template_instance_type
+  name                   = "${var.stack_name}-linux-private-nested"
+  instance_type          = local.nested_launch_template_instance_type
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -355,8 +361,9 @@ resource "aws_launch_template" "linux_private_nested" {
 
 # Windows Private Launch Template
 resource "aws_launch_template" "windows_private" {
-  name          = "${var.stack_name}-windows-private"
-  instance_type = "t3.large"
+  name                   = "${var.stack_name}-windows-private"
+  instance_type          = "t3.large"
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"
@@ -404,8 +411,9 @@ resource "aws_launch_template" "windows_private" {
 }
 
 resource "aws_launch_template" "windows_private_nested" {
-  name          = "${var.stack_name}-windows-private-nested"
-  instance_type = local.nested_launch_template_instance_type
+  name                   = "${var.stack_name}-windows-private-nested"
+  instance_type          = local.nested_launch_template_instance_type
+  update_default_version = true
 
   ebs_optimized                        = true
   instance_initiated_shutdown_behavior = "terminate"

@@ -111,4 +111,18 @@ run "no_template_assigns_public_ip_when_private_mode_is_only" {
     ])
     error_message = "no launch template should assign a public IP when private_mode is \"only\" (Security Hub EC2.25)."
   }
+
+  assert {
+    condition = alltrue([
+      aws_launch_template.linux_default.update_default_version == true,
+      aws_launch_template.linux_default_nested.update_default_version == true,
+      aws_launch_template.windows_default.update_default_version == true,
+      aws_launch_template.windows_default_nested.update_default_version == true,
+      aws_launch_template.linux_private.update_default_version == true,
+      aws_launch_template.linux_private_nested.update_default_version == true,
+      aws_launch_template.windows_private.update_default_version == true,
+      aws_launch_template.windows_private_nested.update_default_version == true,
+    ])
+    error_message = "every launch template should make each new version its default: Security Hub EC2.25 checks the default version."
+  }
 }
