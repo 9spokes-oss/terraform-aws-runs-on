@@ -62,7 +62,7 @@ resource "aws_launch_template" "linux_default" {
   }
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = var.network.private_mode != "only"
     delete_on_termination       = true
     device_index                = 0
     security_groups             = var.network.security_group_ids
@@ -115,7 +115,7 @@ resource "aws_launch_template" "linux_default_nested" {
   }
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = var.network.private_mode != "only"
     delete_on_termination       = true
     device_index                = 0
     security_groups             = var.network.security_group_ids
@@ -165,7 +165,7 @@ resource "aws_launch_template" "windows_default" {
   }
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = var.network.private_mode != "only"
     delete_on_termination       = true
     device_index                = 0
     security_groups             = var.network.security_group_ids
@@ -218,7 +218,7 @@ resource "aws_launch_template" "windows_default_nested" {
   }
 
   network_interfaces {
-    associate_public_ip_address = true
+    associate_public_ip_address = var.network.private_mode != "only"
     delete_on_termination       = true
     device_index                = 0
     security_groups             = var.network.security_group_ids
